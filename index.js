@@ -1,5 +1,7 @@
 const { Client, Intents } = require('discord.js');
 
+const { MessageEmbed } = require('discord.js');
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 const prefix = '!';
@@ -7,6 +9,8 @@ const prefix = '!';
 client.once('ready', () => {
     console.log('Bot is online');
 });
+
+const Embed = new MessageEmbed().setColor('BLURPLE')
 
 client.on('messageCreate', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -19,238 +23,185 @@ client.on('messageCreate', message =>{
     let dps = 1;
     let heal = 1;
     
-    function randomHero(){
-        hero = Math.floor(Math.random() * 31);
+    function randomHero(max, min){
+        hero = Math.floor(Math.random() * (max - min) ) + min;
         if (hero == 0){
-            hero = 'D.va'
+            Embed.setTitle('Dva')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/dva/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 1){
-            hero = 'Orisa'
+            Embed.setTitle('Orisa')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/orisa/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 2){
-            hero = 'Reinhardt'
+            Embed.setTitle('Reinhardt')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/reinhardt/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 3){
-            hero = 'Roadhog'
+            Embed.setTitle('Roadhog')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/roadhog/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 4){
-            hero = 'Sigma'
+            Embed.setTitle('Sigma')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/sigma/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 5){
-            hero = 'Winston'
+            Embed.setTitle('Winston')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/winston/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 6){
-            hero = 'Wrecking ball'
+            Embed.setTitle('Wrecking Ball')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/wrecking-ball/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 7){
-            hero = 'Zarya'
+            Embed.setTitle('Zarya')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/zarya/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 8){
-            hero = 'Ashe'
+            Embed.setTitle('Ashe')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/ashe/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 9){
-            hero = 'Bastion'
+            Embed.setTitle('Bastion')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/bastion/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 10){
-            hero = 'Cassidy'
+            Embed.setTitle('Cassidy')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/cassidy/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 11){
-            hero = 'Doomfist'
+            Embed.setTitle('Doomfist')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/doomfist/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 12){
-            hero = 'Echo'
+            Embed.setTitle('Echo')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/echo/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 13){
-            hero = 'Genji'
+            Embed.setTitle('Genji')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/genji/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 14){
-            hero = 'Hanzo'
+            Embed.setTitle('Hanzo')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/hanzo/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 15){
-            hero = 'Junkrat'
+            Embed.setTitle('Junkrat')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/junkrat/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 16){
-            hero = 'Mei'
+            Embed.setTitle('Mei')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/mei/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 17){
-            hero = 'Pharah'
+            Embed.setTitle('Pharah')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/pharah/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 18){
-            hero = 'Reaper'
+            Embed.setTitle('Reaper')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/reaper/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 19){
-            hero = 'Soldier: 76'
+            Embed.setTitle('Soldier: 76')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/soldier-76/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 20){
-            hero = 'Sombra'
+            Embed.setTitle('Sombra')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/sombra/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 21){
-            hero = 'Symmetra'
+            Embed.setTitle('Symmetra')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/symmetra/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 22){
-            hero = 'Torbjörn'
+            Embed.setTitle('Torbjörn')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/torbjorn/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 23){
-            hero = 'Tracer'
+            Embed.setTitle('Tracer')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/tracer/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 24){
-            hero = 'Widowmaker'
+            Embed.setTitle('Widowmaker')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/widowmaker/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 25){
-            hero = 'Ana'
+            Embed.setTitle('Ana')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/ana/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 26){
-            hero = 'Baptiste'
+            Embed.setTitle('Baptiste')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/baptiste/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 27){
-            hero = 'Brigitte'
+            Embed.setTitle('Brigitte')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/brigitte/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 28){
-            hero = 'Lúcio'
+            Embed.setTitle('Lúcio')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/lucio/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 29){
-            hero = 'Mercy'
+            Embed.setTitle('Mercy')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/mercy/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 30){
-            hero = 'Moira'
+            Embed.setTitle('Moira')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/moira/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         if (hero == 31){
-            hero = 'Zenyatta'
+            Embed.setTitle('Zenyatta')
+            Embed.setThumbnail('https://d1u1mce87gyfbn.cloudfront.net/hero/zenyatta/icon-portrait.png')
+            hero = { embeds: [Embed] }
         }
         return hero
     }
 
-    randomHero()
 
-    function randomTank(){
-        tank = Math.floor(Math.random() * 8);
-        if (tank == 0){
-            tank = 'D.va';
-        }
-        if (tank == 1){
-            tank = 'Orisa';
-        }
-        if (tank == 2){
-            tank = 'Reinhardt';
-        }
-        if (tank == 3){
-            tank = 'Roadhog';
-        }
-        if (tank == 4){
-            tank = 'Sigma';
-        }
-        if (tank == 5){
-            tank = 'Winston';
-        }
-        if (tank == 6){
-            tank = 'Wrecking ball';
-        }
-        if (tank == 7){
-            tank = 'Zarya';
-        }
-        return tank
-    }
-    randomTank()
-
-    function randomDps(){
-        dps = Math.floor(Math.random()  * (25 - 8) ) + 8;;
-        if (dps == 8){
-            dps = 'Ashe'
-        }
-        if (dps == 9){
-            dps = 'Bastion'
-        }
-        if (dps == 10){
-            dps = 'Cassidy'
-        }
-        if (dps == 11){
-            dps = 'Doomfist'
-        }
-        if (dps == 12){
-            dps = 'Echo'
-        }
-        if (dps == 13){
-            dps = 'Genji'
-        }
-        if (dps == 14){
-            dps = 'Hanzo'
-        }
-        if (dps == 15){
-            dps = 'Junkrat'
-        }
-        if (dps == 16){
-            dps = 'Mei'
-        }
-        if (dps == 17){
-            dps = 'Pharah'
-        }
-        if (dps == 18){
-            dps = 'Reaper'
-        }
-        if (dps == 19){
-            dps = 'Soldier: 76'
-        }
-        if (dps == 20){
-            dps = 'Sombra'
-        }
-        if (dps == 21){
-            dps = 'Symmetra'
-        }
-        if (dps == 22){
-            dps = 'Torbjörn'
-        }
-        if (dps == 23){
-            dps = 'Tracer'
-        }
-        if (dps == 24){
-            dps = 'Widowmaker'
-        }
-        return tank
-    }
-    randomDps()
-
-    function randomHeal(){
-        heal = Math.floor(Math.random() * (32 - 25) ) + 25;;
-        if (heal == 25){
-            heal = 'Ana'
-        }
-        if (heal == 26){
-            heal = 'Baptiste'
-        }
-        if (heal == 27){
-            heal = 'Brigitte'
-        }
-        if (heal == 28){
-            heal = 'Lúcio'
-        }
-        if (heal == 29){
-            heal = 'Mercy'
-        }
-        if (heal == 30){
-            heal = 'Moira'
-        }
-        if (heal == 31){
-            heal = 'Zenyatta'
-        }
-        return dps
-    }
-    randomHeal()
-
+   
     if(command === 'hero'){
-        message.channel.send(`${hero}`)
+        randomHero(0, 32)
+        message.channel.send(hero)
     } else if(command === 'tank') {
-        message.channel.send(`${tank}`)
+        randomHero(0, 8)
+        message.channel.send(hero)
     } else if(command === 'dps') {
-        message.channel.send(`${dps}`)
+        randomHero(8, 25)
+        message.channel.send(hero)
     } else if(command === 'heal') {
-        message.channel.send(`${heal}`)
+        randomHero(25, 32)
+        message.channel.send(hero)
     }
 })
-
-
-
-
-
-
-
 client.login('OTUwMDg4MDM2MDY5MzA2NDA4.YiT0bw.eTeEuVacel1ZgXOYUtBlhlTb0nw');
